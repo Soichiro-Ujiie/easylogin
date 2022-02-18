@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.easylogin.model.dao.UserRepository;
 
-
 @Controller
 public class LoginController {
 	
@@ -34,7 +33,7 @@ public class LoginController {
 		List<User> users = userRepos.findByUserNameAndPassword(userName, password);
 		if(users.size()>0) {
 			User user = users.get(0);
-			message += user.getName();
+			message += user.getFullName();
 		}else {
 			message += "guest";
 		}
@@ -44,4 +43,3 @@ public class LoginController {
 		return "login";
 	}
 }
-	
